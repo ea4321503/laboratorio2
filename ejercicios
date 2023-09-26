@@ -1,0 +1,113 @@
+Module Module1
+
+    Sub Main()
+        Dim Saludo As String = "BIENVENIDO A LABORATORIO2 HECHO POR EDUARDO AVILA, PROGRAMACION 2"
+        Console.WriteLine(Saludo)
+
+        'Ejercicio1
+        Console.WriteLine("----------------------------------------------------")
+
+        Console.Write("Ingrese la distancia en kilómetros: ")
+        Dim dKm As Double = Double.Parse(Console.ReadLine())
+        Console.Write("Ingrese el tiempo en horas: ")
+        Dim h As Integer = Integer.Parse(Console.ReadLine())
+        Console.Write("Ingrese el tiempo en minutos: ")
+        Dim minutos As Integer = Integer.Parse(Console.ReadLine())
+        ' Calcular el tiempo total en minutos
+        Dim tiempoTotalMinutos As Integer = (h * 60) + minutos
+        ' Calcular la velocidad media en diferentes unidades
+        Dim velocidadKmH As Double = dKm / h
+        Dim velocidadKmM As Double = dKm / tiempoTotalMinutos
+        Dim velocidadKmS As Double = dKm / (tiempoTotalMinutos * 60)
+        Dim velocidadMPorMinuto As Double = (dKm * 1000) / tiempoTotalMinutos
+        Dim velocidadMPorSegundo As Double = (dKm * 1000) / (tiempoTotalMinutos * 60)
+        ' Mostrar los resultados en consola
+        Console.WriteLine("Velocidad media en Km/h: " & velocidadKmH & " Km/h")
+        Console.WriteLine("Velocidad media en Km/min: " & velocidadKmM & " Km/min")
+        Console.WriteLine("Velocidad media en Km/s: " & velocidadKmS & " Km/s")
+        Console.WriteLine("Velocidad media en m/min: " & velocidadMPorMinuto & " m/min")
+        Console.WriteLine("Velocidad media en m/s: " & velocidadMPorSegundo & " m/s")
+
+        'ejercicio2
+        Console.WriteLine("----------------------------------------------------")
+        Try
+            Console.WriteLine("Ingrese el promedio mensual de infracciones: ")
+            Dim pM As Double = Double.Parse(Console.ReadLine())
+
+            ' Calcular el promedio diario en diferentes jornadas
+            Dim promedioMatutino As Double = (pM * 0.2) / 30
+            Dim promedioTarde As Double = (pM * 0.35) / 30
+            Dim promedioNocturno As Double = (pM * 0.45) / 30
+
+            Console.WriteLine("Promedio diario de infracciones en la mañana: " & promedioMatutino.ToString("F2"))
+            Console.WriteLine("Promedio diario de infracciones en la tarde: " & promedioTarde.ToString("F2"))
+            Console.WriteLine("Promedio diario de infracciones en la noche: " & promedioNocturno.ToString("F2"))
+        Catch ex As FormatException
+            Console.WriteLine("Error de formato: Ingrese un valor numérico válido.")
+        Catch ex As Exception
+            Console.WriteLine($"Error inesperado: {ex.Message}")
+        Finally
+            Console.ReadLine()
+        End Try
+
+        'ejercicio3
+        Console.WriteLine("----------------------------------------------------")
+        Dim n1 As Integer
+        Dim n2 As Integer
+
+        Console.Write("Inserta el primer número: ")
+        n1 = Convert.ToInt32(Console.ReadLine())
+
+        Console.Write("Inserta el segundo número: ")
+        n2 = Convert.ToInt32(Console.ReadLine())
+
+        If n1 Mod n2 = 0 Then
+            Console.WriteLine(n2 & " es un divisor de " & n1)
+        ElseIf n2 Mod n1 = 0 Then
+            Console.WriteLine(n1 & " es un divisor de " & n2)
+        Else
+            Console.WriteLine("Ningun número es divisor del otro.")
+        End If
+
+        Console.ReadLine()
+
+        'ejercicio4
+        Console.WriteLine("----------------------------------------------------")
+        Try
+
+            Dim random As New Random
+
+            Dim num1 As Integer = random.Next()
+            Dim num2 As Integer = random.Next()
+            Dim n3 As Integer = random.Next()
+
+            Console.WriteLine("Ingrese el primer número:")
+            num1 = Convert.ToInt32(Console.ReadLine())
+
+            Console.WriteLine("Ingrese el segundo número:")
+            num2 = Convert.ToInt32(Console.ReadLine())
+
+            Console.WriteLine("Ingrese el tercer número:")
+            n3 = Convert.ToInt32(Console.ReadLine)
+
+            Dim mayor As Integer = Math.Max(num1, Math.Max(num2, n3))
+            Dim menor As Integer = Math.Min(num1, Math.Min(num2, n3))
+            Dim medio As Integer = (num1 + num2 + n3 - mayor - menor)
+
+            Console.WriteLine("Random: {0},{1},{2} ", num1, num2, n3)
+
+            Console.WriteLine("El número mayor es: {0}", mayor)
+            Console.WriteLine("El número medio es: {0}", medio)
+            Console.WriteLine("El número menor es: {0}", menor)
+
+            Console.WriteLine("Laboratorio realizado por Eduardo Antonio Avila Ascencio.")
+            Console.ReadLine()
+
+        Catch ex As Exception
+            Console.WriteLine("SE DEBEN INGRESAR SOLO NÚMEROS")
+
+        End Try
+
+    End Sub
+
+End Module
